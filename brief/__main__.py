@@ -1,8 +1,16 @@
+from rich.live import Live
+
+from brief.core.layouts.base import BaseLayout
 from brief.core.utils.console import console
 
 
 def main() -> None:
-    print("Hello World!")
+    layout = BaseLayout()
+    alive = True
+
+    with Live(console=console) as live_table:
+        while alive:
+            live_table.update(layout)
 
 
 if __name__ == "__main__":
